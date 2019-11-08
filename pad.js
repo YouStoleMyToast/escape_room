@@ -57,7 +57,7 @@ export class OptionBlock {
         }
         this.width = 75;
         this.height = 75;
-        this.value;
+        this.value = "";
         this.inputBlock = inputBlock;
 
     }
@@ -69,6 +69,13 @@ export class OptionBlock {
             context.fillStyle = '#a38f1e';
         }
         context.fillRect(this.position.x, this.position.y, this.width, this.height)
+    }
+
+    HasValue() {
+        if (this.value == "") {
+            return false;
+        }
+        return true;
     }
 
     IsClicked(mouse_x, mouse_y) {
