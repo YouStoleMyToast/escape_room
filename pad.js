@@ -1,10 +1,10 @@
 export default class Pad {
     constructor(gameWidth, gameHeight) {
-        this.width = 100;
-        this.height = 100;
+        this.width = gameWidth - (gameWidth / 4);
+        this.height = gameHeight - (gameHeight / 4);
         this.position = {
-            x: gameWidth / 2 - this.width / 2,
-            y: gameHeight - this.height - 10
+            x: gameWidth / 8,
+            y: gameHeight / 8,
         };
     }
 
