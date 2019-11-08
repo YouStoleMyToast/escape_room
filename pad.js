@@ -7,10 +7,10 @@ export default class Pad {
             y: gameHeight - this.height - 10
         };
     }
-    
+
     draw(context) {
-        //context.fillStyle = '#f00';
+        context.fillStyle = '#136078';
         context.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
-    
+
 }
