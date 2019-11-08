@@ -1,17 +1,16 @@
-import Pad from './pad';
-const GAME_WIDTH = 720;
+import Pad from './pad.js';
+const GAME_WIDTH = 960;
 const GAME_HEIGHT = 640;
 
 //var page = document.querySelector("wrapper");
 var GameCanvas = document.createElement("canvas");
-canvas.id = "gameScreen";
-canvas.width = GAME_WIDTH;
-canvas.height = GAME_HEIGHT;
-
+GameCanvas.id = "gameScreen";
+GameCanvas.width = GAME_WIDTH;
+GameCanvas.height = GAME_HEIGHT;
 var GameContext = GameCanvas.getContext("2d");
 
-loadGameScreen = () => {
-    document.querySelector("wrapper").appendChild(canvas);
+var loadGameScreen = () => {
+    document.querySelector("wrapper").appendChild(GameCanvas);
 }
 loadGameScreen();
 
