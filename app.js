@@ -14,11 +14,17 @@ var loadGameScreen = () => {
 }
 loadGameScreen();
 
+// function getClickPosition(e){
+//     var mouse_x = e.clientX;
+//     var mouse_y = e.clientY;
+// }
+// keypad.addEventListener("click",getClickPosition,false)
 
 
 // Clearing the screen
 //ontext.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
 let keypad = new Pad(GAME_WIDTH, GAME_HEIGHT);
-
+keypad.loadOptionBlocks();
+keypad.loadInputBlocks();
 keypad.draw(GameContext);
