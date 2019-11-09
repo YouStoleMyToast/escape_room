@@ -57,7 +57,10 @@ export class OptionBlock {
         }
         this.width = 75;
         this.height = 75;
-        this.value = "";
+        this.Letter = "";
+        if (!inputBlock) {
+            this.Letter = getRandomLetter();
+        }
         this.inputBlock = inputBlock;
 
     }
@@ -68,11 +71,20 @@ export class OptionBlock {
         } else {
             context.fillStyle = '#a38f1e';
         }
-        context.fillRect(this.position.x, this.position.y, this.width, this.height)
+        context.fillRect(this.position.x, this.position.y, this.width, this.height);
+        if (this.HasLetter()) {
+            var quarterX = this.position.x + ((this.width / 4));
+            var quarterY = this.position.y + ((this.height / 4)) * 3;
+            context.fillStyle = '#ffffff';
+            context.font = '30px Arial'
+            context.fillText(this.Letter, quarterX, quarterY);
+        }
+
+
     }
 
-    HasValue() {
-        if (this.value == "") {
+    HasLetter() {
+        if (this.Letter == "") {
             return false;
         }
         return true;
