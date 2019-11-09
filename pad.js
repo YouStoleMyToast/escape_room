@@ -1,5 +1,5 @@
 export default class Pad {
-    constructor(gameWidth, gameHeight, woord) {
+    constructor(gameWidth, gameHeight) {
         this.width = gameWidth - (gameWidth / 4);
         this.height = gameHeight - (gameHeight / 4);
         this.word = "start";
