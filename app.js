@@ -1,8 +1,10 @@
 import Pad from './pad.js';
+import GameScreen, { Door } from './gamescreen.js';
+
 const GAME_WIDTH = 960;
 const GAME_HEIGHT = 640;
 
-//var page = document.querySelector("wrapper");
+
 var GameCanvas = document.createElement("canvas");
 GameCanvas.id = "gameScreen";
 GameCanvas.width = GAME_WIDTH;
@@ -13,6 +15,10 @@ var loadGameScreen = () => {
     document.querySelector("wrapper").appendChild(GameCanvas);
 }
 loadGameScreen();
+var colors = [/*light grey*/'#BBB8AF',/*dark brown*/'#3A190F',/*light brown*/'#653D31'];
+let gamescreen = new GameScreen(GAME_WIDTH, GAME_HEIGHT);
+gamescreen.loadObjects();
+gamescreen.draw(GameContext, colors);
 
 // function getClickPosition(e){
 //     var mouse_x = e.clientX;
@@ -24,7 +30,7 @@ loadGameScreen();
 // Clearing the screen
 //ontext.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-let keypad = new Pad(GAME_WIDTH, GAME_HEIGHT);
+/*let keypad = new Pad(GAME_WIDTH, GAME_HEIGHT);
 keypad.loadOptionBlocks();
 keypad.loadInputBlocks();
-keypad.draw(GameContext);
+keypad.draw(GameContext);*/
