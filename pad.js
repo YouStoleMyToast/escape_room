@@ -1,8 +1,8 @@
 export default class Pad {
-    constructor(gameWidth, gameHeight) {
+    constructor(gameWidth, gameHeight, woord) {
         this.width = gameWidth - (gameWidth / 4);
         this.height = gameHeight - (gameHeight / 4);
-        this.word = "asdfa";
+        this.word = "start";
         this.position = {
             x: gameWidth / 8,
             y: gameHeight / 8,
@@ -18,6 +18,14 @@ export default class Pad {
         for (var i = 0; i < this.inputBlocks.length; i++) {
             this.inputBlocks[i].draw(context);
         }
+        return;
+    }
+
+    changeWord() {
+        this.word = wordObject.word;
+        this.loadInputBlocks();
+        this.loadOptionBlocks();
+        getNextWord();
         return;
     }
 
@@ -53,7 +61,7 @@ export default class Pad {
         var inputBlocks = [];
         for (var i = 0; i < this.word.length; i++) {
             inputBlocks.push(new OptionBlock(inputBlockX, inputBlockY, true));
-            inputBlockX += 100;
+            inputBlockX += 70;
         }
         this.inputBlocks = inputBlocks;
     }
@@ -65,10 +73,11 @@ export class OptionBlock {
             x: x,
             y: y,
         }
-        this.width = 75;
+        this.width = 50;
         this.height = 75;
         this.Letter = "";
         if (!inputBlock) {
+            this.width = 75;
             this.Letter = getRandomLetter();
         }
         this.inputBlock = inputBlock;
