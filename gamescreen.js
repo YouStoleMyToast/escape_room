@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 //import Pad from './pad';
 
 export default class GameScreen {
@@ -128,7 +129,6 @@ export class Key {
 
     }
 }
-=======
 export default class GameScreen {
     constructor(gameWidth, gameHeight){
         this.width = gameWidth;
@@ -219,8 +219,7 @@ export class Picture {
         loaded_image.onload = function (){
             context.drawImage(loaded_image, 445, 65, 450, 290);
         }
-        // console.log("image source: ", image['image_url']);
-        loaded_image.src = image['image_url'];
+        loaded_image.src = word['image_url'];
     }
 }
 
@@ -256,4 +255,3 @@ export class Key {
 
     }
 }
->>>>>>> 09453042152e1366042450cb7a27b968403d1a14
