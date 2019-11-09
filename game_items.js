@@ -131,8 +131,8 @@ export class Key {
 
     }
     IsClicked(mouse_x, mouse_y) {
-        if (this.x < mouse_x & mouse_x < this.x + mouse_x) {
-            if (this.y < mouse_y & mouse_y < this.y + mouse_y) {
+        if (this.x <= mouse_x & mouse_x <= this.x + this.width) {
+            if (this.y <= mouse_y & mouse_y <= this.y + this.height) {
                 return true;
             }
         }

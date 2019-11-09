@@ -9,7 +9,7 @@ GameCanvas.id = "gameScreen";
 GameCanvas.width = GAME_WIDTH;
 GameCanvas.height = GAME_HEIGHT;
 
-var keypad = new Pad(GAME_WIDTH, GAME_HEIGHT, "ASDF");
+var keypad = new Pad(GAME_WIDTH, GAME_HEIGHT, "ASDHF");
 keypad.loadOptionBlocks();
 keypad.loadInputBlocks();
 
@@ -37,14 +37,15 @@ function EvaluateClick(e) {
     if (player.CurrentState == 1) {
         for (var i = 0; i < Game.game_objects.length; i++) {
             if (Game.game_objects[i].IsClicked(x_pos, y_pos)) {
-                keypad = new Pad(GAME_WIDTH, GAME_HEIGHT, "ASDF");
+                keypad.word = "asdf";
                 keypad.loadOptionBlocks();
                 keypad.loadInputBlocks();
-                keypad.draw();
+                keypad.draw(GameContext);
                 player.CurrentState = 2;
-                return
+                return;
             }
         }
+        return;
     }
 
 
@@ -55,11 +56,12 @@ function EvaluateClick(e) {
                     if (!keypad.inputBlocks[e].HasLetter()) {
                         keypad.inputBlocks[e].Letter = keypad.optionBlocks[i].Letter;
                         keypad.draw(GameContext)
-                        return
+                        return;
                     }
                 }
             }
         }
+        return;
     }
 }
 

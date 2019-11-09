@@ -2,7 +2,7 @@ letters = new Array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
 
 class PlayerData {
     constructor() {
-        this.CurrentState = 2;
+        this.CurrentState = 1;
         this.Level = 1;
 
     };
