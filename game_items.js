@@ -2,6 +2,7 @@ export default class GameScreen {
     constructor(gameWidth, gameHeight) {
         this.width = gameWidth;
         this.height = gameHeight;
+        this.img_url = wordObject.url;
         this.game_objects = [];
         this.position = {
             x: 0,

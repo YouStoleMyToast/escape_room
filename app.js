@@ -45,8 +45,6 @@ function EvaluateClick(e) {
         }
         return;
     }
-
-
     if (player.CurrentState == 2) {
         for (var i = 0; i < keypad.optionBlocks.length; i++) {
             if (keypad.optionBlocks[i].IsClicked(x_pos, y_pos)) {
