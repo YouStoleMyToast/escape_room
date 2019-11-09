@@ -16,9 +16,19 @@ export default class Pad {
             this.optionBlocks[i].draw(context)
         }
         for (var i = 0; i < this.inputBlocks.length; i++) {
-            this.inputBlocks[i].draw(context)
+            this.inputBlocks[i].draw(context);
         }
-        return
+        return;
+    }
+
+    handleBackspace() {
+        for (var i = this.inputBlocks.length; i > -1; i--) {
+            if (this.inputBlocks[i].HasLetter()) {
+                this.inputBlocks[i].Letter = "";
+                return true;
+            }
+        }
+        return false;
     }
 
     loadOptionBlocks() {
@@ -80,7 +90,7 @@ export class OptionBlock {
             context.fillText(this.Letter, quarterX, quarterY);
         }
 
-
+        return;
     }
 
     HasLetter() {
@@ -91,9 +101,13 @@ export class OptionBlock {
     }
 
     IsClicked(mouse_x, mouse_y) {
-        if (mouse_x >= this.position.x & mouse_x < this.position.x + this.width) {
-            if (mouse_y >= this.position.y & mouse_y < this.position.y + this.height) {
-                return true;
+        if (mouse_x >= this.position.x) {
+            if (mouse_y >= this.position.y) {
+                if (mouse_x <= this.position.x + this.width) {
+                    if (mouse_y <= this.position.y + this.height) {
+                        return true;
+                    }
+                }
             }
         }
         return false;

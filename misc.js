@@ -2,7 +2,7 @@ letters = new Array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
 
 class PlayerData {
     constructor() {
-        this.CurrentState = 1;
+        this.CurrentState = 2;
         this.Level = 1;
 
     };
@@ -11,4 +11,14 @@ class PlayerData {
 function getRandomLetter() {
     var i = (Math.floor(Math.random() * letters.length));
     return letters[i];
+}
+
+
+
+function getNextWord() {
+    fetch(`http://localhost:8080/getWord`).then(function(response) {
+        response.json().then(function(data) {
+            console.log("Data: ", data)
+        });
+    });
 }
