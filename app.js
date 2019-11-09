@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-//import Pad from './pad.js';
-import GameScreen from './gamescreen.js';
-
-=======
 import Pad from './pad.js';
-import GameScreen, { Door } from './game_items.js';
->>>>>>> 2d937c52a53d100b9dc3c5dcd1479df3dabdc887
+import GameScreen from './game_items.js';
 const GAME_WIDTH = 960;
 const GAME_HEIGHT = 640;
 getNextWord(); //this loads first word
@@ -35,29 +29,6 @@ var loadGameScreen = () => {
     console.log(document.querySelector("wrapper"));
 }
 loadGameScreen();
-<<<<<<< HEAD
-var number = 1;
-var colors = [/*light grey*/'#BBB8AF',/*dark brown*/'#3A190F',/*light brown*/'#653D31'];
-let gamescreen = new GameScreen(GAME_WIDTH, GAME_HEIGHT);
-//let keypad = new Pad(GAME_WIDTH, GAME_HEIGHT);
-gamescreen.loadObjects();
-gamescreen.draw(GameContext, colors, number);
-
-// function getClickPosition(e){
-//     var mouse_x = e.clientX;
-//     var mouse_y = e.clientY;
-// }
-// keypad.addEventListener("click",getClickPosition,false)
-
-
-// Clearing the screen
-//ontext.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
-
-/*let keypad = new Pad(GAME_WIDTH, GAME_HEIGHT);
-keypad.loadOptionBlocks();
-keypad.loadInputBlocks();
-keypad.draw(GameContext);*/
-=======
 var GameContext = GameCanvas.getContext("2d");
 
 
@@ -112,10 +83,9 @@ function DetermineGameWin() {
 function GetGame() { //starts the next level
     PlayerData.CurrentState = 1;
     Game.load_level(player.Level);
-    Game.draw(GameContext);
+    Game.draw(GameContext );
     return;
 }
 
 
-GetGame()
->>>>>>> 2d937c52a53d100b9dc3c5dcd1479df3dabdc887
+GetGame();

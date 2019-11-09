@@ -10,13 +10,13 @@ export default class GameScreen {
         }
     }
 
-    draw(context) {
+    draw(context, word) {
         context.fillStyle = "#BBB8AF";
         context.fillRect(this.position.x, this.position.y, this.width, this.height);
         for (var i = 0; i < this.game_objects.length; i++) {
             this.game_objects[i].draw(context);
             if (this.game_objects[i].name == "picture") {
-                this.game_objects[i].drawImg(context, this.image_url);
+                this.game_objects[i].drawImg(context, word );
             }
         };
     }
@@ -98,12 +98,15 @@ export class Picture {
         context.fillRect(this.x, this.y, this.width, this.height);
         context.strokeRect(this.x + 15, this.y + 15, this.width - 30, this.height - 30);
     }
-    drawImg(context, url) {
-        var img = new Image();
-        img.onload = function() {
-            context.drawImage(img, 445, 65, 450, 290);
+    drawImg(context, word) {
+        var loaded_image = new Image();
+        loaded_image.onload = function (){
+            context.drawImage(loaded_image, 445, 65, 450, 290);
         }
-        img.src = url;
+        console.log("image source: ", word['image_url']);
+        loaded_image.src = word['image_url'];
+        // var strDataURI = oCanvas.toDataURL();
+        // img.src = strDataURI;
     }
 
     IsClicked(mouse_x, mouse_y) {

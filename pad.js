@@ -21,11 +21,12 @@ export default class Pad {
         return;
     }
 
-    changeWord() {
-        this.word = wordObject.word;
+    changeWord(word) {
+        console.log("word in changeword is ", word);
+        this.word = word;
         this.loadInputBlocks();
         this.loadOptionBlocks();
-        getNextWord();
+        // getWord();
         return;
     }
 
