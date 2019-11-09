@@ -9,11 +9,11 @@ var GameCanvas = document.createElement("canvas");
 GameCanvas.id = "gameScreen";
 GameCanvas.width = GAME_WIDTH;
 GameCanvas.height = GAME_HEIGHT;
-var GameContext = GameCanvas.getContext("2d");
 
 var loadGameScreen = () => {
     document.querySelector("wrapper").appendChild(GameCanvas);
 }
+<<<<<<< HEAD
 loadGameScreen();
 var colors = [/*light grey*/'#BBB8AF',/*dark brown*/'#3A190F',/*light brown*/'#653D31'];
 let gamescreen = new GameScreen(GAME_WIDTH, GAME_HEIGHT);
@@ -25,12 +25,18 @@ gamescreen.draw(GameContext, colors);
 //     var mouse_y = e.clientY;
 // }
 // keypad.addEventListener("click",getClickPosition,false)
+=======
+>>>>>>> 507eb18b0c8ee3d904f4b3eea5c6d5e1772efeed
+
+loadGameScreen();
+var GameContext = GameCanvas.getContext("2d");
+let keypad = new Pad(GAME_WIDTH, GAME_HEIGHT);
 
 
-// Clearing the screen
-//ontext.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
-
+<<<<<<< HEAD
 /*let keypad = new Pad(GAME_WIDTH, GAME_HEIGHT);
+=======
+>>>>>>> 507eb18b0c8ee3d904f4b3eea5c6d5e1772efeed
 keypad.loadOptionBlocks();
 keypad.loadInputBlocks();
 keypad.draw(GameContext);*/
