@@ -1,3 +1,5 @@
+//import Pad from './pad';
+
 export default class GameScreen {
     constructor(gameWidth, gameHeight){
         this.width = gameWidth;
@@ -8,12 +10,12 @@ export default class GameScreen {
         }
     }
     
-    draw(context, colors) {
+    draw(context, colors, number) {
         context.fillStyle = colors[0]
         context.fillRect(this.position.x, this.position.y, this.width, this.height);
         this.door.draw(context, colors[1]);
         this.picture.draw(context, colors[2]);
-        this.level.draw(context);
+        this.level.draw(context, number);
         this.key.draw(context);
     }
 
@@ -85,6 +87,11 @@ export class Picture {
         context.fillStyle = color;
         context.fillRect(this.x,this.y,this.width,this.height);
         context.strokeRect(this.x+15, this.y+15, this.width-30, this.height-30);
+        var img = new Image();
+        img.onload = function () {
+            context.drawImage(img, 445, 65, 450, 290);
+        }
+        img.src="tiger.jpg";
     }
 }
 
@@ -95,13 +102,13 @@ export class Level {
         this.x = x;
         this.y = y;
     }
-    draw(context){
+    draw(context, number){
         context.fillStyle = '#F6F6F6';
         context.fillRect(this.x,this.y,this.width,this.height);
         context.strokeRect(this.x,this.y,this.width,this.height);
         context.fillStyle = '#000000';
-        context.font = "45px Georgia";
-        context.fillText("LEVEL", this.x+15, this.y+55);
+        context.font = "50px Georgia";
+        context.fillText("LEVEL: " + number, this.x+15, this.y+55);
     }
 }
 
