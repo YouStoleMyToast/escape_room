@@ -2,6 +2,7 @@ import Pad from './pad.js';
 import GameScreen, { Door } from './game_items.js';
 const GAME_WIDTH = 960;
 const GAME_HEIGHT = 640;
+getNextWord();
 
 //var page = document.querySelector("wrapper");
 var GameCanvas = document.createElement("canvas");
@@ -9,7 +10,7 @@ GameCanvas.id = "gameScreen";
 GameCanvas.width = GAME_WIDTH;
 GameCanvas.height = GAME_HEIGHT;
 
-var keypad = new Pad(GAME_WIDTH, GAME_HEIGHT, "ASDHF");
+var keypad = new Pad(GAME_WIDTH, GAME_HEIGHT);
 keypad.loadOptionBlocks();
 keypad.loadInputBlocks();
 
@@ -37,9 +38,6 @@ function EvaluateClick(e) {
     if (player.CurrentState == 1) {
         for (var i = 0; i < Game.game_objects.length; i++) {
             if (Game.game_objects[i].IsClicked(x_pos, y_pos)) {
-                keypad.word = "asdf";
-                keypad.loadOptionBlocks();
-                keypad.loadInputBlocks();
                 keypad.draw(GameContext);
                 player.CurrentState = 2;
                 return;
@@ -73,6 +71,8 @@ function DetermineGameWin() {
     }
     player.CurrentState = 1;
     player.Level = 1; //change this to change level
+    Game.image_url = wordObject.image_url;
+    keypad.changeWord();
     GetGame();
     return true;
 }
@@ -83,5 +83,6 @@ function GetGame() {
     Game.load_level(player.Level);
     Game.draw(GameContext);
 }
+
 
 GetGame()

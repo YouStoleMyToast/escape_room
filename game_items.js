@@ -14,6 +14,7 @@ export default class GameScreen {
         context.fillRect(this.position.x, this.position.y, this.width, this.height);
         for (var i = 0; i < this.game_objects.length; i++) {
             this.game_objects[i].draw(context);
+            if (this.game_objects[i].name == "picture") {}
         };
     }
 
@@ -50,6 +51,7 @@ export default class GameScreen {
         this.game_objects.push(key);
     }
 
+
     load_level(level) {
         if (level == 1) {
             this.drawDoor();
@@ -62,6 +64,7 @@ export default class GameScreen {
 
 export class Door {
     constructor(w, h, x, y) {
+        this.name = "door";
         this.width = w;
         this.height = h;
         this.x = x;
@@ -83,6 +86,7 @@ export class Picture {
     constructor(w, h, x, y) {
         this.width = w;
         this.height = h;
+        this.name = "picture";
         this.x = x;
         this.y = y;
     }
@@ -91,6 +95,13 @@ export class Picture {
         context.fillRect(this.x, this.y, this.width, this.height);
         context.strokeRect(this.x + 15, this.y + 15, this.width - 30, this.height - 30);
     }
+    drawImage(context, url) {
+        var img = new Image;
+        var strDataURI = oCanvas.toDataURL();
+        img.src = strDataURI;
+        context.drawImage(img, this.x, this.y, this.width, this.height);
+    }
+
     IsClicked(mouse_x, mouse_y) {
         return false;
     }
@@ -98,6 +109,7 @@ export class Picture {
 
 export class Level {
     constructor(w, h, x, y) {
+        this.name = "level"
         this.width = w;
         this.height = h;
         this.x = x;
@@ -118,8 +130,10 @@ export class Level {
 
 export class Key {
     constructor(w, h, x, y) {
+        this.name = "key"
         this.width = w;
         this.height = h;
+
         this.x = x;
         this.y = y;
     }
