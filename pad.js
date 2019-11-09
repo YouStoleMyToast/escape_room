@@ -1,5 +1,5 @@
 export default class Pad {
-    constructor(gameWidth, gameHeight, woord) {
+    constructor(gameWidth, gameHeight) {
         this.width = gameWidth - (gameWidth / 4);
         this.height = gameHeight - (gameHeight / 4);
         this.word = "start";
@@ -21,11 +21,12 @@ export default class Pad {
         return;
     }
 
-    changeWord() {
-        this.word = wordObject.word;
+    changeWord(word) {
+        console.log("word in changeword is ", word);
+        this.word = word;
         this.loadInputBlocks();
         this.loadOptionBlocks();
-        getNextWord();
+        // getWord();
         return;
     }
 
