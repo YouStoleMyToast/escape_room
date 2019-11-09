@@ -56,6 +56,8 @@ function EvaluateClick(e) {
                     if (!keypad.inputBlocks[e].HasLetter()) {
                         keypad.inputBlocks[e].Letter = keypad.optionBlocks[i].Letter;
                         keypad.draw(GameContext)
+                        DetermineGameWin();
+                        console.log(player.CurrentState)
                         return;
                     }
                 }
@@ -64,6 +66,17 @@ function EvaluateClick(e) {
         return;
     }
 }
+
+function DetermineGameWin() {
+    if (!keypad.inputBlocks[keypad.inputBlocks.length - 1].HasLetter()) {
+        return false;
+    }
+    player.CurrentState = 1;
+    player.Level = 1; //change this to change level
+    GetGame();
+    return true;
+}
+
 
 function GetGame() {
     PlayerData.CurrentState = 1;

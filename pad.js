@@ -21,6 +21,12 @@ export default class Pad {
         return;
     }
 
+    changeWord(word) {
+        this.word = word;
+        this.loadInputBlocks()
+        this.loadOptionBlocks()
+    }
+
     handleBackspace() {
         for (var i = this.inputBlocks.length; i > -1; i--) {
             if (this.inputBlocks[i].HasLetter()) {
