@@ -8,7 +8,7 @@ import GameScreen, { Door } from './game_items.js';
 >>>>>>> 2d937c52a53d100b9dc3c5dcd1479df3dabdc887
 const GAME_WIDTH = 960;
 const GAME_HEIGHT = 640;
-getNextWord();
+getNextWord(); //this loads first word
 
 
 var GameCanvas = document.createElement("canvas");
@@ -26,6 +26,7 @@ var Game = new GameScreen(GAME_WIDTH, GAME_HEIGHT);
 
 
 
+getNextWord(); //this loads next word after success
 
 var loadGameScreen = () => {
     document.querySelector("wrapper").appendChild(GameCanvas);
@@ -77,8 +78,6 @@ function EvaluateClick(e) {
         }
         return;
     }
-
-
     if (player.CurrentState == 2) {
         for (var i = 0; i < keypad.optionBlocks.length; i++) {
             if (keypad.optionBlocks[i].IsClicked(x_pos, y_pos)) {
@@ -102,18 +101,19 @@ function DetermineGameWin() {
         return false;
     }
     player.CurrentState = 1;
-    player.Level = 1; //change this to change level
-    Game.image_url = wordObject.image_url;
-    keypad.changeWord();
+    player.Level = 1;
+    Game.image_url = wordObject.image_url; //update image to be drawn
+    keypad.changeWord(); //update word value ---also gets values for next turn
     GetGame();
     return true;
 }
 
 
-function GetGame() {
+function GetGame() { //starts the next level
     PlayerData.CurrentState = 1;
     Game.load_level(player.Level);
     Game.draw(GameContext);
+    return;
 }
 
 
